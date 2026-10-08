@@ -25,7 +25,7 @@ main 分支保存网站源码，gh-pages 分支仅保存已经验证的 `dist/` 
 - 目录：**/(root)**
 
 本试部署仓库为 `anoodle3/Guitest`，使用 GitHub Pages 的标准分支发布方式；不需要自定义 Actions 工作流。
-仓库为私有仓库，Pages 是否可以启用，以管理员设置页的实际结果为准。无需预先更改仓库可见性。
+用户已授权将试部署仓库设为公开。Pages 已启用，发布分支为 `gh-pages`，目录为 `/(root)`。
 
 启用 Pages 后，GitHub 会从 gh-pages 分支构建并发布；不需要创建自定义 Actions 工作流。
 
