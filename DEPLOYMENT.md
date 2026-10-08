@@ -24,7 +24,7 @@ main 分支保存网站源码，gh-pages 分支仅保存已经验证的 `dist/` 
 - Branch：**gh-pages**
 - 目录：**/(root)**
 
-本试部署仓库为 `anoodle3/Guitest`，使用 GitHub Pages 的标准分支发布方式；不需要自定义 Actions 工作流。
+本试部署仓库为 `anoodle3/yigraph`，使用 GitHub Pages 的标准分支发布方式；不需要自定义 Actions 工作流。
 用户已授权将试部署仓库设为公开。Pages 已启用，发布分支为 `gh-pages`，目录为 `/(root)`。
 
 启用 Pages 后，GitHub 会从 gh-pages 分支构建并发布；不需要创建自定义 Actions 工作流。
@@ -32,8 +32,8 @@ main 分支保存网站源码，gh-pages 分支仅保存已经验证的 `dist/` 
 无自定义域名时，预期网址为：
 
 ```text
-https://anoodle3.github.io/Guitest/
-https://anoodle3.github.io/Guitest/#/cases
+https://anoodle3.github.io/yigraph/
+https://anoodle3.github.io/yigraph/#/cases
 ```
 
 页面使用 hash 路由，适配静态托管，刷新子页面无需后端路由。资源使用相对路径，适配仓库子目录。
