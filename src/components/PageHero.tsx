@@ -1,0 +1,16 @@
+import type { ReactNode } from "react";
+
+export function PageHero({ eyebrow, title, description, children }: { eyebrow: string; title: string; description: string; children?: ReactNode }) {
+  return (
+    <section className="page-hero grid-field">
+      <div className="container page-hero-inner">
+        <div>
+          <span className="eyebrow">{eyebrow}</span>
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </div>
+        {children}
+      </div>
+    </section>
+  );
+}
