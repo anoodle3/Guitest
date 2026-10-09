@@ -1,6 +1,6 @@
-import { ArrowRight, CheckCircle2, ExternalLink, Video } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { ArrowRight, CheckCircle2, ExternalLink, Play, Video } from "lucide-react";
+import { useEffect } from "react";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { DemoVideo } from "../components/DemoVideo";
 import { MediaGallery } from "../components/MediaGallery";
 import { PageHero } from "../components/PageHero";
@@ -50,9 +50,33 @@ const demoCases = [
   },
 ];
 
+const caseIds: Record<string, string> = {
+  金融: "finance",
+  电信: "telecom",
+  制造: "manufacturing",
+  纪检: "inspection",
+  产品演示: "product",
+};
+
+const videoId = (file: string) => `video-${file.replace(/\.mp4$/, "")}`;
+
 export function CasesPage() {
-  const [filter, setFilter] = useState("全部");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const categories = ["全部", "金融", "电信", "制造", "纪检", "产品演示"];
+  const filter = categories.find(category => caseIds[category] === searchParams.get("industry")) ?? "全部";
+  useEffect(() => {
+    const targetId = location.hash.slice(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    const frame = requestAnimationFrame(() => {
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      target.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth", block: "start" });
+      target.focus({ preventScroll: true });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [location.hash, location.key]);
   const visibleCases = filter === "全部" ? cases : cases.filter(item => item.category === filter);
   const visibleDemos = filter === "全部" ? demoCases : demoCases.filter(item => item.category === filter);
   const visibleVideos = filter === "全部" ? videos : videos.filter(video => video.category === filter);
@@ -60,19 +84,19 @@ export function CasesPage() {
   return <>
     <PageHero eyebrow="INDUSTRY CASES & VIDEOS" title="把复杂关系，转化为可行动的洞察" description="通过金融、电信、工业制造与纪检核查 demo，查看易图如何从多源数据构图到生成可追溯分析报告。" />
     <section className="section case-library"><div className="container">
-      <div className="filter-bar case-filters" aria-label="案例分类筛选">{categories.map(item => <button className={filter === item ? "active" : ""} aria-pressed={filter === item} onClick={() => setFilter(item)} key={item}>{item}</button>)}</div>
-      <div className="case-detail-grid">{visibleCases.map(({ icon: Icon, category, title, text, result }, index) => <article className="case-detail" key={title}><div className="case-detail-top"><span>0{index + 1}</span><div className="case-icon"><Icon size={26} /></div></div><small>{category}</small><h2>{title}</h2><p>{text}</p><div className="case-result"><CheckCircle2 size={17} /><span>{result}</span></div><div className="case-lines" aria-hidden="true"><i/><i/><i/></div></article>)}</div>
+      <div className="filter-bar case-filters" aria-label="案例分类筛选">{categories.map(item => <button className={filter === item ? "active" : ""} aria-pressed={filter === item} onClick={() => navigate(item === "全部" ? "/cases" : `/cases?industry=${caseIds[item]}`, { replace: true })} key={item}>{item}</button>)}</div>
+      <div className="case-detail-grid">{visibleCases.map(({ icon: Icon, category, title, text, result }, index) => <Link className="case-detail" to={`/cases${location.search}#case-${caseIds[category]}`} aria-label={`查看${category}案例：${title}`} key={title}><div className="case-detail-top"><span>0{index + 1}</span><div className="case-icon"><Icon size={26} /></div></div><small>{category}</small><h2>{title}</h2><p>{text}</p><div className="case-result"><CheckCircle2 size={17} /><span>{result}</span><ArrowRight className="case-jump-icon" size={18} aria-hidden="true" /></div><div className="case-lines" aria-hidden="true"><i/><i/><i/></div></Link>)}</div>
     </div></section>
     {visibleDemos.length > 0 && <section className="section case-evidence grid-field"><div className="container">
       <div className="section-heading"><span className="eyebrow">PRODUCT IN PRACTICE</span><h2>把分析过程展开给你看</h2><p>以下为产品演示案例，展示界面、算法流程与样例结果。</p></div>
-      {visibleDemos.map(demo => <article className="case-demo" key={demo.category}>
-        <div className="case-demo-copy"><span className="eyebrow">{demo.category} · 演示案例</span><h3>{demo.title}</h3><p>{demo.description}</p><blockquote>{demo.question}</blockquote><dl><div><dt>输入数据</dt><dd>{demo.input}</dd></div><div><dt>分析流程</dt><dd>{demo.workflow}</dd></div><div><dt>示例输出</dt><dd>{demo.output}</dd></div></dl><a className="text-link" href={demo.source} target="_blank" rel="noreferrer">阅读案例原文 <ExternalLink size={16}/></a></div>
+      {visibleDemos.map(demo => <article className="case-demo" id={`case-${caseIds[demo.category]}`} tabIndex={-1} aria-label={`${demo.category}案例详情`} key={demo.category}>
+        <div className="case-demo-copy"><span className="eyebrow">{demo.category} · 演示案例</span><h3>{demo.title}</h3><p>{demo.description}</p><blockquote>{demo.question}</blockquote><dl><div><dt>输入数据</dt><dd>{demo.input}</dd></div><div><dt>分析流程</dt><dd>{demo.workflow}</dd></div><div><dt>示例输出</dt><dd>{demo.output}</dd></div></dl><div className="case-demo-links"><Link className="text-link" to={`/cases${location.search}#${videoId(videos.find(video => video.category === demo.category)!.file)}`}><Play size={16}/>观看{demo.category}演示视频</Link><a className="text-link" href={demo.source} target="_blank" rel="noreferrer">阅读案例原文 <ExternalLink size={16}/></a></div></div>
         <MediaGallery images={demo.images} label={`${demo.category}演示`} />
       </article>)}
     </div></section>}
     <section className="section industry-video-library grid-field"><div className="container">
       <div className="section-heading row-heading"><div><span className="eyebrow">INDUSTRY VIDEOS</span><h2>行业应用视频</h2><p>从图数据查看到分析结果，用操作录屏了解实际工作流。</p></div><div className="industry-video-count"><Video size={17}/><span>{videoScope}</span><strong>{visibleVideos.length} 个视频</strong></div></div>
-      {visibleVideos.length > 0 ? <div className="industry-video-grid">{visibleVideos.map(video => <article className="industry-video-card" key={video.file}><DemoVideo video={video}/><div className="industry-video-copy"><small>{video.category} · 产品演示</small><h3>{video.title}</h3><p>{video.description}</p></div></article>)}</div> : null}
+      {visibleVideos.length > 0 ? <div className="industry-video-grid">{visibleVideos.map(video => <article className="industry-video-card" id={videoId(video.file)} tabIndex={-1} aria-label={`${video.category}视频：${video.title}`} key={video.file}><DemoVideo video={video}/><div className="industry-video-copy"><small>{video.category} · 产品演示</small><h3>{video.title}</h3><p>{video.description}</p></div></article>)}</div> : null}
     </div></section>
     <section className="workflow-band grid-field"><div className="container"><div className="section-heading centered"><span className="eyebrow">ONE WORKFLOW, MANY DOMAINS</span><h2>统一能力，适配不同业务语境</h2></div><div className="workflow-steps">{[["01","接入","整合业务数据"],["02","理解","解析行业问题"],["03","分析","调用图算法"],["04","交付","生成可追溯报告"]].map(([n,t,d]) => <div key={n}><span>{n}</span><strong>{t}</strong><small>{d}</small></div>)}</div></div></section>
     <section className="bottom-cta"><div className="container"><div><span className="eyebrow">TAILORED SOLUTION</span><h2>讨论你的图数据分析场景</h2></div><Link className="button button-primary" to="/contact">联系我们，交流分析需求 <ArrowRight size={17}/></Link></div></section>
