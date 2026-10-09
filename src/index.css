@@ -99,9 +99,9 @@ main { min-height: 80vh; }
 .ring-one::before, .ring-two::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px var(--cyan); }
 .ring-one::before { left: 10%; top: 16%; }.ring-two::after { right: 5%; bottom: 28%; background: var(--green); box-shadow: 0 0 18px var(--green); }
 .orbit-core { width: 148px; height: 148px; border: 1px solid rgba(57,217,242,.4); background: rgba(4,18,23,.85); display: grid; place-content: center; text-align: center; transform: rotate(45deg); box-shadow: 0 0 70px rgba(57,217,242,.14); }
-.orbit-core span, .orbit-core small { transform: rotate(-45deg); }
-.orbit-core span { font: 700 48px/1 "Barlow Condensed", sans-serif; color: var(--cyan); }
-.orbit-core small { font: 600 8px "Barlow Condensed", sans-serif; letter-spacing: 1.6px; margin-top: 8px; color: #adc1c5; }
+.orbit-core-content { transform: rotate(-45deg); display: grid; justify-items: center; gap: 8px; }
+.orbit-core span { font: 700 32px/1 "Barlow Condensed", sans-serif; color: var(--cyan); }
+.orbit-core small { font: 600 8px "Barlow Condensed", sans-serif; letter-spacing: 1.6px; color: #adc1c5; }
 .orbit-tag { position: absolute; padding: 7px 10px; color: #b8c8cb; border-left: 2px solid var(--cyan); background: rgba(7,20,25,.88); font: 500 11px "Barlow Condensed", sans-serif; letter-spacing: 1px; }
 .tag-a { left: 0; top: 29%; }.tag-b { right: -3%; top: 47%; border-color: var(--green); }.tag-c { left: 20%; bottom: 4%; border-color: var(--blue); }
 .hero-index { position: absolute; left: 20px; bottom: 26px; writing-mode: vertical-rl; color: rgba(171,200,206,.3); font: 600 10px "Barlow Condensed", sans-serif; letter-spacing: 2px; }
@@ -203,7 +203,7 @@ main { min-height: 80vh; }
 
 @media (max-width: 760px) {
   .container { width: min(calc(100% - 32px), var(--max)); }.section{padding:78px 0}.section-heading{margin-bottom:34px}.section-heading h2{font-size:34px}.split-heading,.row-heading{display:block}.split-heading{grid-template-columns:1fr;gap:0}.row-heading>.text-link,.row-heading>.filter-bar{margin-top:22px}.eyebrow{font-size:11px}
-  .home-hero{min-height:calc(100vh - 40px)}.hero-inner{min-height:calc(100vh - 112px);display:block;padding-top:95px;padding-bottom:60px}.hero-copy h1{font-size:46px;line-height:1.1}.hero-copy h1 span{font-size:.82em}.hero-copy>p{font-size:14px}.hero-orbit{position:absolute;width:270px;right:-95px;bottom:8px;opacity:.48}.orbit-core{width:100px;height:100px}.orbit-core span{font-size:36px}.orbit-tag{display:none}.hero-meta{gap:12px 18px;padding-right:50px}.hero-index{display:none}
+  .home-hero{min-height:calc(100vh - 40px)}.hero-inner{min-height:calc(100vh - 112px);display:block;padding-top:95px;padding-bottom:60px}.hero-copy h1{font-size:46px;line-height:1.1}.hero-copy h1 span{font-size:.82em}.hero-copy>p{font-size:14px}.hero-orbit{position:absolute;width:270px;right:-95px;bottom:8px;opacity:.48}.orbit-core{width:100px;height:100px}.orbit-core span{font-size:22px}.orbit-tag{display:none}.hero-meta{gap:12px 18px;padding-right:50px}.hero-index{display:none}
   .capability-grid{grid-template-columns:1fr}.capability-card{min-height:270px;border-right:0;border-bottom:1px solid var(--line)}.capability-card:last-child{border-bottom:0}.capability-card h3{margin-top:38px}.proof-grid{grid-template-columns:1fr 1fr}.lab-proof{grid-column:1/-1;padding-left:0;border-right:0;border-bottom:1px solid var(--line)}.stat{padding-left:0}.proof-grid .stat:last-child{display:flex}.proof-grid .stat:nth-child(3){border-right:0}.proof-grid .stat:last-child{display:none}
   .video-feature-grid{grid-template-columns:1fr;gap:50px}.video-frame{box-shadow:8px 8px 0 #091418}.case-grid,.resource-grid,.case-detail-grid,.coming-grid{grid-template-columns:1fr}.inline-cta{align-items:flex-start;flex-wrap:wrap}.inline-cta a{width:100%;margin-left:34px}
   .page-hero{min-height:440px;padding:125px 0 60px}.page-hero-inner{min-height:auto;grid-template-columns:1fr}.page-hero h1{font-size:44px}.page-hero p{font-size:14px}.hero-code-panel,.lab-seal{display:none}

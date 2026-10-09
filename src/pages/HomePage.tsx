@@ -4,6 +4,7 @@ import { DemoVideo } from "../components/DemoVideo";
 import { NetworkCanvas } from "../components/NetworkCanvas";
 import { CommunityMetrics } from "../components/CommunityMetrics";
 import { capabilities, cases, externalLinks, resources } from "../lib/site-data";
+import { productDemo } from "../lib/media";
 
 export function HomePage() {
   return (
@@ -15,7 +16,7 @@ export function HomePage() {
           <div className="hero-copy">
             <div className="hero-kicker"><Sparkles size={15} /> LLM × GRAPH ANALYTICS</div>
             <h1>用自然语言，<br /><span>驱动图数据智能分析</span></h1>
-            <p>易图 YiGraph 将大语言模型与确定性图算法融合，从多源数据构图、智能分析到可追溯报告，让复杂关系分析更直接、更可信。</p>
+            <p>易图 (YiGraph) 将大语言模型与确定性图算法融合，自主完成多源数据构图、智能分析到生成可追溯报告，让复杂关系分析更直接、更可信。</p>
             <div className="hero-actions">
               <Link className="button button-primary" to="/cases">查看行业案例 <ArrowRight size={18} /></Link>
               <a className="button button-secondary" href={externalLinks.github} target="_blank" rel="noreferrer"><Github size={18} />访问 GitHub</a>
@@ -29,7 +30,7 @@ export function HomePage() {
           <div className="hero-orbit" aria-hidden="true">
             <div className="orbit-ring ring-one" />
             <div className="orbit-ring ring-two" />
-            <div className="orbit-core"><span>Yi</span><small>GRAPH INTELLIGENCE</small></div>
+            <div className="orbit-core"><div className="orbit-core-content"><span>yigraph</span><small>GRAPH INTELLIGENCE</small></div></div>
             <div className="orbit-tag tag-a">NL Query</div>
             <div className="orbit-tag tag-b">Graph Engine</div>
             <div className="orbit-tag tag-c">Traceable</div>
@@ -65,8 +66,8 @@ export function HomePage() {
 
       <section className="section home-demo-section">
         <div className="container home-demo-grid">
-          <DemoVideo />
-          <div className="video-copy"><span className="eyebrow">SEE IT IN ACTION</span><h2>56 秒，看见一次图分析</h2><p>在金融交易演示中，查看图数据、用自然语言提出问题，再由易图规划 DAG、调用算法并整理分析结果。</p><Link className="text-link large" to="/cases">查看完整案例与界面 <ArrowRight size={18}/></Link></div>
+          <DemoVideo video={productDemo} />
+          <div className="video-copy"><span className="eyebrow">SEE IT IN ACTION</span><h2>从多源数据，到可追溯报告</h2><p>通过新版英文讲解录屏，查看交易数据构图、账户风险核查和潜在交易伙伴识别，了解从业务问题到证据报告的完整过程。</p><Link className="text-link large" to="/cases">查看行业 demo 与分析过程 <ArrowRight size={18}/></Link></div>
         </div>
       </section>
 

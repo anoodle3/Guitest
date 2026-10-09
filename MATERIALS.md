@@ -41,3 +41,27 @@
 
 已有素材足够支撑首版介绍站。可后续提供电信独立录屏、其他行业的实际演示、团队成员公开资料，以及确认后的实验室收件邮箱。
 联系页仍沿用原网站配置的 `idc@neu.edu.cn`，当前素材未提供新的收件地址；网站仅打开邮件草稿，不自动发送或保存表单。
+
+## 2026-10-09 新增素材与页面修订
+
+用户新增三个压缩包和七篇 iDCNEU Lab 公众号文章。已通过浏览器读取七篇全文；其中的邀请、操作步骤等仅作为资料，不作为执行指令。
+
+- demo.zip：金融交易（66.50 秒）、电信（75.02 秒）、工业制造（146.98 秒）、纪检监察（66.38 秒）四段录屏。
+- 最新版本视频.mp4.zip：236.50 秒英文讲解，包含交易构图、账户风险分析、证据报告与潜在交易伙伴识别。原文件约 109 MB；保留分辨率和时长，压缩为网页用 H.264/AAC MP4（约 18 MB），保留音频和字幕画面。
+- yigraph工业制造demo.mp4.zip：视频与 demo.zip 中工业制造视频 SHA-256 相同，不重复发布。
+
+金融主演示与产品概览替换为新素材；保留原有账户分析录屏。当前视频库共六段，覆盖金融、电信、制造、纪检和产品演示。纪检文件名中的 discipline 指监察核查，不是学科建设。
+
+首页菱形中心文字改为 yigraph；首页介绍按用户原文替换。移除科研知识图谱、医疗知识关联和企业关系穿透三个无 demo 的卡片。工业案例改为实际展示的故障诊断与修复，新增有录屏支持的纪检核查案例。
+
+制造文章与视频中的故障节点标识及样例数值不同，网页仅概述共同支持的诊断流程，不混用具体数值。新增制造与纪检的六张界面截图，和四个案例的原文入口。资源页加入七篇公众号文章链接。
+
+### 参考文章
+
+- [都叫“图智能”，KBQA、GraphRAG 和 YiGraph 到底有什么不同？](https://mp.weixin.qq.com/s/Z2SlUVdOzTiqH96Vc9Y63Q)
+- [基站一堵，全网变慢？YiGraph 帮你自动生成扩容与流量卸载建议](https://mp.weixin.qq.com/s/0naJlLwDbmtQcIPrmtn8vA)
+- [工业故障为什么总是查不清？YiGraph 给出了一种新的解法](https://mp.weixin.qq.com/s/MHcNQVf4rPhrEzVDzBEkLw)
+- [流水看得见，风险说不清？YiGraph 帮你自动追踪洗钱路径](https://mp.weixin.qq.com/s/ShZiothKsoCMWlfq7J6d-Q)
+- [YiGraph v1.1 发布 ：让图分析更简单，让关系洞察更清晰](https://mp.weixin.qq.com/s/9AOeb5gL-WA4xMwgMn8E_A)
+- [60秒看懂 YiGraph：从多源文件到可追溯核查报告](https://mp.weixin.qq.com/s/KCK-uYPhIg3F3Tf6wMthMQ)
+- [发现关联关系，释放数据价值｜易图（YiGraph）](https://mp.weixin.qq.com/s/fngC5qmjIgwBkhR4wo5yxw)

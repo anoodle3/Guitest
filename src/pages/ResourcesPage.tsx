@@ -1,7 +1,7 @@
 import { ArrowRight, BookOpenCheck, ExternalLink, FileCode2, Github, MessageCircleQuestion } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
-import { externalLinks } from "../lib/site-data";
+import { articles, externalLinks } from "../lib/site-data";
 
 export function ResourcesPage() {
   return <>
@@ -11,7 +11,7 @@ export function ResourcesPage() {
       <article className="resource-wide"><div className="resource-wide-icon green"><BookOpenCheck size={35} /></div><div><span className="eyebrow">USER GUIDE</span><h2>YiGraph 用户手册</h2><p>覆盖环境配置、数据接入、分析任务和结果解读，帮助用户从首次使用快速进入完整工作流。</p><div className="chapter-list"><span>01 安装与部署</span><span>02 数据准备</span><span>03 分析工作流</span><span>04 结果导出</span></div></div><a className="button button-secondary" href={externalLinks.docs} target="_blank" rel="noreferrer">查看手册 <ExternalLink size={17} /></a></article>
       <article className="resource-wide"><div className="resource-wide-icon blue"><FileCode2 size={35} /></div><div><span className="eyebrow">ACADEMIC PAPER</span><h2>AAG 学术论文</h2><p>深入了解 YiGraph 的研究背景、设计方法、系统架构与实验评估，为图智能研究与引用提供完整依据。</p><blockquote>Towards Autonomous Graph Data Analytics with Analytics-Augmented Generation</blockquote><div className="resource-meta"><span>arXiv:2602.21604</span><span>2026</span><span>Graph Analytics</span></div></div><a className="button button-secondary" href={externalLinks.paper} target="_blank" rel="noreferrer">阅读论文 <ExternalLink size={17} /></a></article>
     </div></section>
-    <section className="coming-resources grid-field"><div className="container"><div className="section-heading"><span className="eyebrow">MORE TO COME</span><h2>持续扩展的技术资料</h2></div><div className="coming-grid"><div><FileCode2 /><h3>API 文档</h3><p>标准接口与集成示例</p><span>规划中</span></div><div><BookOpenCheck /><h3>技术博客</h3><p>工程实践与研究分享</p><span>规划中</span></div></div></div></section>
+    <section className="section grid-field"><div className="container"><div className="section-heading"><span className="eyebrow">PRODUCT STORIES</span><h2>产品解读与行业实践</h2><p>来自 iDCNEU Lab 公众号的产品介绍、技术解读与演示案例。</p></div><div className="resource-grid">{articles.map(article => <a className="resource-card" href={article.href} target="_blank" rel="noreferrer" key={article.href}><small>{article.category} · iDCNEU Lab</small><h3>{article.title}</h3><p>{article.text}</p><span className="text-link">阅读公众号原文 <ExternalLink size={16} /></span></a>)}</div></div></section>
     <section className="bottom-cta"><div className="container"><div><span className="eyebrow">NEED HELP?</span><h2>使用资源时遇到问题？</h2></div><Link className="button button-primary" to="/contact"><MessageCircleQuestion size={18} />联系我们 <ArrowRight size={17} /></Link></div></section>
   </>;
 }
