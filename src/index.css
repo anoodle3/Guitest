@@ -65,7 +65,7 @@ p { color: var(--muted); line-height: 1.8; }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
 .logo { display: inline-flex; align-items: center; gap: 10px; flex: none; }
 .logo-mark { width: 36px; height: 36px; display: grid; place-items: center; color: var(--cyan); border: 1px solid var(--line-strong); background: #07151a; transform: rotate(-3deg); }
-.logo-word { font: 700 27px/1 "Barlow Condensed", sans-serif; letter-spacing: 0; background: linear-gradient(90deg, #4be5f4, #45a8f5 58%, #9eff6a); background-clip: text; color: transparent; }
+.logo-word { font: 700 27px/1 "Barlow Condensed", "Noto Sans SC", "Microsoft YaHei UI", sans-serif; white-space: nowrap; letter-spacing: 0; background: linear-gradient(90deg, #4be5f4, #45a8f5 58%, #9eff6a); background-clip: text; color: transparent; }
 .main-nav { display: flex; align-items: stretch; height: 100%; gap: 26px; }
 .main-nav a { position: relative; display: flex; align-items: center; color: #afbec1; font-size: 13px; white-space: nowrap; }
 .main-nav a::after { content: ""; position: absolute; height: 2px; left: 50%; right: 50%; bottom: 0; background: var(--cyan); transition: 180ms ease; }
@@ -468,6 +468,7 @@ body.is-scrolling .site-shell::before { opacity: .34; }
   .about-lab-card { gap: 32px; padding: 32px; }
 }
 @media (max-width: 700px) {
+  .logo-word { font-size: 22px; }
   .about-lab-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
   .about-lab-copy h2 { font-size: 27px; }
   .about-lab-copy p { font-size: 14px; }

@@ -30,7 +30,7 @@ export function HomePage() {
           <div className="hero-orbit" aria-hidden="true">
             <div className="orbit-ring ring-one" />
             <div className="orbit-ring ring-two" />
-            <div className="orbit-core"><div className="orbit-core-content"><span>yigraph</span><small>GRAPH INTELLIGENCE</small></div></div>
+            <div className="orbit-core"><div className="orbit-core-content"><span>YiGraph</span><small>GRAPH INTELLIGENCE</small></div></div>
             <div className="orbit-tag tag-a">NL Query</div>
             <div className="orbit-tag tag-b">Graph Engine</div>
             <div className="orbit-tag tag-c">Traceable</div>
