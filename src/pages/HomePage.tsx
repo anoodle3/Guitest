@@ -57,10 +57,10 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="proof-band">
-        <div className="container proof-grid">
-          <div className="lab-proof"><span className="lab-mark">iDC</span><div><strong>东北大学 iDC 实验室</strong><small>Intelligent Data Computing Laboratory</small></div></div>
-          <CommunityMetrics />
+      <section className="section proof-band academic-proof">
+        <div className="container">
+          <div className="section-heading centered"><span className="eyebrow">由东北大学 iDC 实验室研发</span><h2>技术实力与学术背书</h2></div>
+          <div className="academic-metrics"><CommunityMetrics /></div>
         </div>
       </section>
 

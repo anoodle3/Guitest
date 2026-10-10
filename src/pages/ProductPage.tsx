@@ -20,14 +20,6 @@ const featureScreens = [
   { file: "algorithm-graph.webp", caption: "关系图探索 · 操作录屏截图" },
 ];
 
-const architectureLayers = [
-  ["01", "用户交互层", "自然语言问题、数据上传与报告查看"],
-  ["02", "决策层", "任务拆解、DAG 规划、算法调度与结果解释"],
-  ["03", "知识层", "任务与图算法知识，支撑算法匹配"],
-  ["04", "数据交互层", "原始数据构图、格式适配与结果流转"],
-  ["05", "执行交互层", "通过 MCP 连接图计算与外部分析工具"],
-];
-
 export function ProductPage() {
   return <>
     <PageHero eyebrow="PRODUCT CAPABILITIES" title="把图分析的复杂度，留给系统" description="从问题理解到结论呈现，YiGraph 为每一个分析环节提供连贯、可验证的能力支持。">
@@ -37,8 +29,6 @@ export function ProductPage() {
     <section className="section feature-list"><div className="container">
       {features.map(({ index, title, text, tags }, position) => <article className={position % 2 ? "feature-row reverse" : "feature-row"} key={title}><figure className="product-screen"><a href={mediaUrl(featureScreens[position].file)} target="_blank" rel="noreferrer" aria-label={`查看大图：${title}`}><img src={mediaUrl(featureScreens[position].file)} alt={`${title}：${featureScreens[position].caption}`} loading="lazy" /></a><figcaption>{featureScreens[position].caption}<span>点击查看大图</span></figcaption></figure><div className="feature-copy"><span className="eyebrow">CAPABILITY {index}</span><h2>{title}</h2><p>{text}</p><div className="tag-list">{tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div></article>)}
     </div></section>
-
-    <section className="architecture-section grid-field"><div className="container"><div className="section-heading centered"><span className="eyebrow">ANALYTICS-AUGMENTED GENERATION</span><h2>从问题理解到分析交付</h2><p>AAG 将大模型的语义理解与图算法的确定性计算结合，通过五个功能层协同完成分析工作流。</p></div><div className="aag-layers">{architectureLayers.map(([number,title,text]) => <article className="aag-layer" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
     <section className="section comparison"><div className="container"><div className="section-heading"><span className="eyebrow">WHY YIGRAPH</span><h2>更贴近业务的图智能分析流程</h2></div><div className="comparison-table"><div className="comparison-row head"><span>分析环节</span><span>传统图分析</span><span>YiGraph</span></div>{[["使用门槛","需要掌握查询语言与图算法","以自然语言描述业务问题"],["工作流程","多个工具之间手工切换","构图、分析、报告一体化"],["结果解释","依赖分析人员二次整理","自动记录步骤与证据链"],["算法可靠性","专业能力强但业务理解有限","LLM 理解 + 确定性算法执行"]].map((row) => <div className="comparison-row" key={row[0]}>{row.map((cell, index) => <span className={index === 2 ? "highlight" : ""} key={cell}>{index === 2 && <i>✓</i>}{cell}</span>)}</div>)}</div></div></section>
 

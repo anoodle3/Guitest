@@ -32,22 +32,10 @@ function AnimatedMetric({ value, suffix = "", label }: { value: number | null; s
 }
 
 export function CommunityMetrics() {
-  const [metrics, setMetrics] = useState<{ stars: number | null; forks: number | null }>({ stars: null, forks: null });
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetch("https://api.github.com/repos/iDC-NEU/YiGraph", { signal: controller.signal })
-      .then((response) => response.ok ? response.json() : Promise.reject())
-      .then((data: { stargazers_count?: number; forks_count?: number }) => {
-        setMetrics({ stars: data.stargazers_count ?? null, forks: data.forks_count ?? null });
-      })
-      .catch(() => undefined);
-    return () => controller.abort();
-  }, []);
-
   return <>
-    <AnimatedMetric value={metrics.stars} label="GitHub Stars" />
-    <AnimatedMetric value={metrics.forks} label="社区 Forks" />
-    <AnimatedMetric value={5} suffix="+" label="核心能力模块" />
+    <AnimatedMetric value={200} suffix="+" label="支持的图算法" />
+    <AnimatedMetric value={5} suffix="+" label="行业应用场景" />
+    <AnimatedMetric value={100} suffix="%" label="开源代码" />
+    <AnimatedMetric value={30} suffix="+" label="篇核心论文" />
   </>;
 }

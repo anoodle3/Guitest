@@ -7,9 +7,9 @@ export const externalLinks = {
 };
 
 export const capabilities = [
-  { icon: Share2, number: "01", title: "自然语言驱动分析", text: "描述业务问题，YiGraph 自动理解意图、规划步骤并执行图分析。" },
-  { icon: Network, number: "02", title: "LLM 与图算法融合", text: "让大模型负责理解与编排，让确定性图算法保证结果可靠、可复现。" },
-  { icon: ShieldCheck, number: "03", title: "可追溯报告生成", text: "完整记录数据来源、分析路径和算法结果，让每一个结论都有据可查。" },
+  { icon: Share2, number: "01", title: "自然语言驱动分析", text: "只需用自然语言描述分析需求，系统自动完成多源数据接入、图结构构建和智能分析，无需编写代码或查询语句。" },
+  { icon: Network, number: "02", title: "LLM 与图算法融合", text: "大语言模型的语义理解能力与确定性图算法相结合，既保证分析结果的准确性，又提供灵活的自然语言交互体验。" },
+  { icon: ShieldCheck, number: "03", title: "可追溯报告生成", text: "分析过程全程可追溯，自动将分析逻辑、数据源、算法选择转化为结构化报告，便于向管理层或客户展示分析依据。" },
 ];
 
 export const cases = [

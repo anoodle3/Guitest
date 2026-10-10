@@ -116,7 +116,7 @@ export function Layout() {
             <h2>联系</h2>
             <Link to="/about">东北大学 iDC 实验室</Link>
             <Link to="/contact">合作与咨询</Link>
-            <a href="mailto:idc@neu.edu.cn">idc@neu.edu.cn</a>
+            <a href="mailto:superchency@gmail.com">superchency@gmail.com</a>
           </div>
         </div>
         <div className="container footer-bottom">
